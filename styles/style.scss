@@ -1,0 +1,188 @@
+
+$bgColor: #747d8c;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin flexing ($direction) {
+    display: flex;
+    justify-content: center;
+    flex-direction: $direction;
+    margin-left: 40%;
+}
+
+body{
+    background: $bgColor;
+}
+
+.box{
+   @include flexing(column);
+}
+
+.left-hand{
+    animation: wave 1s ease-in-out infinite alternate;
+    transform-origin:left;
+    transform-box: fill-box ;
+}
+.right-hand{
+    animation: waveO 1s ease-in-out infinite alternate;
+    transform-origin: right;
+    transform-box: fill-box ;
+}
+.head{
+    animation: head 1s ease-in-out infinite alternate;
+    transform-origin: right;
+    transform-box: fill-box ;
+}
+.hair{
+    animation: hair 1s ease-in-out infinite alternate;
+}
+.body{
+    animation: body 1s ease infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes wave {
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(-30deg);
+    }
+
+}
+
+@keyframes waveO {
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(-30deg);
+    }
+
+}
+@keyframes head {
+    from{
+        transform: translateX(10px);
+    }
+    to{
+        transform:  translateX(-10px);
+    }
+
+}
+@keyframes hair {
+    from{
+        transform: translateY(5px);
+    }
+    to{
+        transform: translateY(-5);
+    }
+}
+@keyframes body {
+    from{
+        transform: translateX(5px);
+    }
+    to{
+        transform: translateX(-5px);
+    }
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(2deg);
+    }
+}
+
+
+.allBtn{
+    margin-top: 25px;
+    margin-left: 110px;
+}
+
+.up, .down , .change{
+    padding: 10px;
+    background-color: #ecf0f1;
+    color:  #16a085;
+    border: none;
+    border-radius: 50px;
+    transform: transition;
+    &:hover{
+        background-color: #16a085;
+        color: #ecf0f1;
+        transition: 450ms ease-in-out;
+
+    }
+    &:active{
+         background-color: #16a085;
+        color: #ecf0f1;
+    }
+}
+
+.toggleBtn{
+    @include flexing(column);
+    position: absolute;
+}
+
+.play, .pause{
+    font-size: 40px;
+    margin: 15px;
+    height: 80px;
+    width: 80px;
+    background-color: #ecf0f1;
+    color:  #16a085;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: transition;
+    &:hover{
+        background-color: #16a085;
+        color: #ecf0f1;
+        transition: 450ms ease-in-out;
+    }
+}
+
+
+.changeBtn{
+    margin-top: 25px;
+    margin-left: 150px;
+}
+
+.hairmove,.headmove{
+    animation: headmove 155ms ease-in-out infinite alternate;
+}
+
+@keyframes headmove {
+    from{
+        transform: translateX(5px);
+    }
+    to{
+        transform: translateX(-3px);
+    }
+}
+
+.bodymove,.handmove{
+    animation: handmove 155ms ease-in-out infinite alternate;
+}
+
+@keyframes handmove {
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-3px);
+    }
+}
+
+.handmoveR{
+    animation: handmoveR 155ms ease-in-out infinite alternate;
+}
+
+@keyframes handmoveR {
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-3px);
+    }
+}
